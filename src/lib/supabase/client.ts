@@ -1,3 +1,5 @@
+'use client'
+
 import { createClient } from '@supabase/supabase-js'
 import { type Database } from '@/types/supabase'
 
@@ -8,12 +10,7 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase environment variables')
 }
 
-export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
-  auth: {
-    persistSession: true,
-    autoRefreshToken: true,
-  },
-})
+export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey)
 
 export const getServiceSupabase = () => {
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -22,10 +19,5 @@ export const getServiceSupabase = () => {
     throw new Error('Missing Supabase service key environment variable')
   }
 
-  return createClient<Database>(supabaseUrl, supabaseServiceKey, {
-    auth: {
-      autoRefreshToken: true,
-      persistSession: true,
-    },
-  })
+  return createClient<Database>(supabaseUrl, supabaseServiceKey)
 } 

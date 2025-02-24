@@ -60,9 +60,9 @@ export type Database = {
         Row: {
           id: string
           ec2_instance_id: string
-          status: 'running' | 'stopped' | 'terminated'
-          organization_id: string
           name: string
+          organization_id: string
+          status: 'running' | 'stopped' | 'terminated'
           region: string
           type: string
           last_active: string
@@ -73,9 +73,9 @@ export type Database = {
         Insert: {
           id?: string
           ec2_instance_id: string
-          status?: 'running' | 'stopped' | 'terminated'
-          organization_id: string
           name: string
+          organization_id: string
+          status?: 'running' | 'stopped' | 'terminated'
           region: string
           type: string
           last_active?: string
@@ -86,9 +86,9 @@ export type Database = {
         Update: {
           id?: string
           ec2_instance_id?: string
-          status?: 'running' | 'stopped' | 'terminated'
-          organization_id?: string
           name?: string
+          organization_id?: string
+          status?: 'running' | 'stopped' | 'terminated'
           region?: string
           type?: string
           last_active?: string
