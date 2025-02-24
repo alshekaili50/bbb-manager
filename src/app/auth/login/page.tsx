@@ -2,11 +2,13 @@ import { LoginForm } from '@/components/auth/LoginForm'
 import { SocialAuth } from '@/components/auth/SocialAuth'
 import Link from 'next/link'
 
-export default function LoginPage({
+export default async function LoginPage({
   searchParams,
 }: {
   searchParams: { message: string }
 }) {
+  const message = await Promise.resolve(searchParams?.message)
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
@@ -25,9 +27,9 @@ export default function LoginPage({
           </p>
         </div>
 
-        {searchParams?.message && (
+        {message && (
           <div className="rounded-md bg-green-50 p-4">
-            <p className="text-sm text-green-700">{searchParams.message}</p>
+            <p className="text-sm text-green-700">{message}</p>
           </div>
         )}
 
