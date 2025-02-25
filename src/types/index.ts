@@ -31,6 +31,21 @@ export type Instance = {
   updatedAt: Date
 }
 
+export type InstanceSchedule = {
+  id: string
+  instanceId: string
+  action: 'start' | 'stop'
+  scheduleType: 'daily' | 'weekly' | 'monthly' | 'once'
+  dayOfWeek: number | null
+  dayOfMonth: number | null
+  time: string
+  enabled: boolean
+  createdAt: Date
+  updatedAt: Date
+  nextRun: Date
+  timezone: string
+}
+
 export type Meeting = {
   id: string
   title: string
